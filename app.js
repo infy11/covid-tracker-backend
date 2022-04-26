@@ -7,7 +7,7 @@ var apicache = require('apicache');
 
 var indexRouter = require('./routes/index');
 var CACHE_DURATION = '5 minutes';
-
+var cors = require('cors')
 var app = express();
 
 // view engine setup
@@ -16,7 +16,7 @@ app.set('view engine', 'jade');
 let cache = apicache.middleware
 
 app.use(logger('dev'));
-
+app.use(cors);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
